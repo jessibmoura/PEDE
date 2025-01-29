@@ -1,0 +1,3 @@
+A Associação Passos Mágicos tem uma trajetória de 30 anos de atuação, trabalhando na transformação da vida de crianças e jovens de baixa renda os levando a melhores oportunidades de vida. A ONG oferece um programa de Educação de qualidade para crianças e jovens do município de Embu-Guaçu.
+
+Este projeto tem por objetivo desenvolver uma proposta preditiva para prever o comportamento do estudante com base em algumas variáveis que podem ser cruciais para a identificação de seu desenvolvimento.
