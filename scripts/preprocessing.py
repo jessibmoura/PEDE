@@ -155,8 +155,9 @@ def split_train_test(df: pd.DataFrame, target_col: str, test_size: float = 0.2, 
     tuple
         X_train, X_test, y_train, y_test
     """
-    X = df.drop(columns=[target_col])
-    y = df[target_col]
+    numeric_df = df.select_dtypes(include=['number'])
+    X = numeric_df.drop(columns=[target_col])
+    y = numeric_df[target_col]
     return train_test_split(X, y, test_size=test_size, stratify=y, random_state=random_state)
 
 def preprocess_pipeline(df: pd.DataFrame) -> tuple:

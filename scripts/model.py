@@ -19,7 +19,7 @@ class XGBOOSTPredictor:
             eval_metric='logloss'
         )
     
-    def fit(self, df_train: pd.DataFrame, target_column: str):
+    def fit(self, df_train: pd.DataFrame, df_test: pd.DataFrame):
         """
         Treina o modelo XGBoost nos dados fornecidos.
         
@@ -30,9 +30,7 @@ class XGBOOSTPredictor:
         target_column : str
             Nome da coluna que contém os rótulos.
         """
-        X_train = df_train.drop(columns=[target_column])
-        y_train = df_train[target_column]
-        self.model.fit(X_train, y_train)
+        self.model.fit(df_train, df_test)
         print("Modelo treinado com sucesso!")
     
     def predict(self, df_test: pd.DataFrame) -> pd.Series:
