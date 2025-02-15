@@ -3,6 +3,18 @@ import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 
+
+def get_raw_data_2022(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.drop(columns=["Fase","Pedra 20","Pedra 21","Avaliador1","Avaliador2","Avaliador3","Avaliador4","Matem","Portug","Inglês","Fase ideal"])
+    df = df.rename(columns={"Ano nasc": "Ano_Nascimento",
+                        "Idade 22": "Idade",
+                        "Pedra 22": "Pedra",
+                        "INDE 22": "INDE",
+                        "Nº Av": "Numero_Avaliacoes",
+                        "Defas": "Defasagem"})
+    df["Ano_Coleta_Dados"] = 2022
+    return df
+
 def convert_columns_to_numeric(df: pd.DataFrame, columns: list) -> pd.DataFrame:
     """
     Converte colunas do tipo objeto para valores numéricos, substituindo vírgulas por pontos.
@@ -178,10 +190,11 @@ def preprocess_pipeline(df: pd.DataFrame) -> tuple:
     text_columns = ["Destaque IEG", "Destaque IDA", "Destaque IPV"]
     target_column = "Atingiu PV"
     categorical_column = "Instituição de ensino"
-    
+
+    df = get_raw_data_2022(df)
     df = convert_columns_to_numeric(df, numeric_columns)
     df = encode_target_column(df, target_column)
     df = encode_text_columns(df, text_columns)
     df = one_hot_encode(df, categorical_column)
     df = rename_columns(df)
-    return split_train_test(df, target_column)
+    return df
