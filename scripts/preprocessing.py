@@ -5,6 +5,19 @@ from sklearn.model_selection import train_test_split
 
 
 def get_raw_data_2022(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Remove algumas colunas desnecessárias e renomeia colunas.
+    
+    Parameters
+    ----------
+    df : pd.DataFrame
+        DataFrame contendo os dados a serem convertidos.
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame atualizado com colunas convertidas para numérico.
+    """
     df = df.drop(columns=["Fase","Pedra 20","Pedra 21","Avaliador1","Avaliador2","Avaliador3","Avaliador4","Matem","Portug","Inglês","Fase ideal"])
     df = df.rename(columns={"Ano nasc": "Ano_Nascimento",
                         "Idade 22": "Idade",
