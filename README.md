@@ -28,8 +28,7 @@ A decisão de tratar a previsão do PV como uma classificação binária se base
 
 ### Dashboard
 
-Você pode checar o projeto no link: [PEDE - Predição PV](https://fiap-tc4-petroleumpriceprediction.streamlit.app/), ou
-rodando o seguinte comando:
+Você pode checar o projeto rodando o seguinte comando:
 ```bash
 streamlit run app.py
 ```
